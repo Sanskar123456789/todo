@@ -5,7 +5,7 @@ import {takeUntil} from 'rxjs/operators';
 import { MessageService } from 'primeng/api';
 import { TodoService } from '../../services/todo.service';
 import { TODO } from '../../models/todo';
-import { AbstractControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'todo-todolist',
@@ -65,7 +65,7 @@ export class TodolistComponent implements OnInit,OnDestroy {
     this.todoService.deletetodo({
       key : this.id,
       id :userId.id
-    }).pipe(takeUntil(this.$endsub)).subscribe((data) => {
+    }).pipe(takeUntil(this.$endsub)).subscribe(() => {
       
       this.messageService.add({severity:'success', summary: 'Success', detail: "Note is deleted"});
           timer(1000).toPromise().then(() =>{

@@ -81,7 +81,6 @@ export class TodolistComponent implements OnInit,OnDestroy {
   }
 
   limitincrement(): void{
-
     if(this.todoslist.length>5){
       this.limit+=5
       for(let i = 0; i <= this.limit-1 ; i++){
@@ -115,8 +114,6 @@ export class TodolistComponent implements OnInit,OnDestroy {
     this.newtodolist = newlist;
     this.limit =5;
   }
-
-  
 
   
 }

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, timer } from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
@@ -14,7 +14,7 @@ import { TODO } from '../../models/todo';
 })
 export class TodolistComponent implements OnInit,OnDestroy {
   
-
+  searchBar = document.getElementById('search');
   id = 0; 
   str = "";
   limit = 5;
@@ -92,15 +92,12 @@ export class TodolistComponent implements OnInit,OnDestroy {
     let regex: RegExp;
     let regexStr: string;
     // eslint-disable-next-line prefer-const
-    regexStr = "/"+str + "/" + "i";
-    console.log("str"+regexStr);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     // eslint-disable-next-line prefer-const
-    regex = new RegExp(regexStr);
+    regex = new RegExp(this.str);
     let c = 0;
     const newlist:TODO[]  = []; 
     for(let i = 0; i < this.todoslist.length; i++) {
-      console.log(regex , regexStr);
       regexStr = String(this.todoslist[i].Title);
       if(regex.test(regexStr)) {
         console.log(true);
@@ -113,7 +110,7 @@ export class TodolistComponent implements OnInit,OnDestroy {
     this.limit =5;
   }
 
-
+  
 
   
 }

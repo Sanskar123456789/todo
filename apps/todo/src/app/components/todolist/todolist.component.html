@@ -3,7 +3,7 @@
 <br>
 <span class="p-input-icon-left">
     <i class="pi pi-search"></i>
-    <input type="text" pInputText placeholder="Search" [(ngModel)]="str" />
+    <input type="text" pInputText placeholder="Search" id="search" [(ngModel)]="str" />
     <div id="hid" *ngIf="str.length > 0">{{s(str)}}</div>
 </span>
 

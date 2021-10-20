@@ -1,0 +1,32 @@
+<p-toast></p-toast>
+<br>
+<br>
+<span class="p-input-icon-left">
+    <i class="pi pi-search"></i>
+    <input type="text" pInputText placeholder="Search" [(ngModel)]="str" />
+    <div id="hid" *ngIf="str.length > 0">{{s(str)}}</div>
+</span>
+
+<div class="notes animate__animated animate__zoomIn" *ngFor="let todo of newtodolist">
+    <div class="p-card mt-1">
+        <div class="grid">
+            <div class="p-col-8" id="panel">
+              <h3>{{todo.Title}}</h3>
+              <div class="content">
+                {{todo.Content}}
+
+                <br>
+                <br>
+                {{todo.Created_date | date:'shortDate'}}
+            </div>
+            
+            </div>
+            <div class="p-col-2" >
+                <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="deletenote(todo)" ></button>
+                <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-info" (click)="update(todo)"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-button label="Read More" icon="pi pi-arrow-down" (onClick)="limitincrement()"></p-button>

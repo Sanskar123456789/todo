@@ -1,0 +1,26 @@
+<p-toast></p-toast>
+<div class="notes-data">
+    <div class="p-card">
+        <form action="" [formGroup]="form">
+            <div class="grid">
+                <div class="col-10">
+                    <span class="p-float-label">
+                        <input type="text" id="inputtext" formControlName="Title" pInputText > 
+                        <label for="inputtext">Title</label>
+                    </span>
+                </div>
+                <br>
+                <br>
+                <div class="col-12 ">
+                    <span class="p-float-label">
+                        <textarea id="float-input" rows="10" cols="100" class="textarea"formControlName="Content" pInputTextarea></textarea>
+                        <label for="float-input">Content</label>
+                    </span>
+                </div>
+                <div class="col-3">
+                    <p-button label="Submit" (onClick)="onSubmit()"></p-button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

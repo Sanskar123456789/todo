@@ -1,0 +1,37 @@
+.hid {
+  display: none;
+}
+.notes {
+  width: 100%;
+  padding: 10px;
+  .p-card {
+    background-color: var(--surface-200);
+    width: 100%;
+
+    #panel {
+      width: 100%;
+
+      h3 {
+        color: var(--surface-800);
+        margin-left: 10px;
+        margin-top: 6px;
+      }
+      .content {
+        align-items: center;
+        justify-content: center;
+        height: inherit;
+        margin-left: 15px;
+        font-size: 1.2em;
+        font-weight: 400;
+        width: 70%;
+        word-wrap: break-word;
+      }
+    }
+    .p-button-rounded {
+      margin-top: 2px;
+      height: 35px;
+      width: 35px;
+      margin-right: 10%;
+    }
+  }
+}

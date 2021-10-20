@@ -43,7 +43,10 @@ export class TodolistComponent implements OnInit,OnDestroy {
         this.todoslist[i].key = i;      
       }
       
-      for(let i = 0; i <= 4 ; i++){
+      for(let i = 0; i < l ; i++){
+        if(i>4){
+          break
+        }
         this.newtodolist[i] = this.todoslist[i];
       }
       console.log(this.newtodolist);
@@ -68,7 +71,7 @@ export class TodolistComponent implements OnInit,OnDestroy {
     }).pipe(takeUntil(this.$endsub)).subscribe(() => {
       
       this.messageService.add({severity:'success', summary: 'Success', detail: "Note is deleted"});
-          timer(1000).toPromise().then(() =>{
+          timer(100).toPromise().then(() =>{
             this._getodos();
           })
         },
@@ -78,14 +81,17 @@ export class TodolistComponent implements OnInit,OnDestroy {
   }
 
   limitincrement(): void{
-    this.limit += 5
-    for(let i = 0; i <= this.limit-1 ; i++){
-      if(i >= this.todoslist.length){
-        break;
+
+    if(this.todoslist.length>5){
+      this.limit+=5
+      for(let i = 0; i <= this.limit-1 ; i++){
+        if(i >= this.todoslist.length){
+          break;
+        }
+        this.newtodolist[i] = this.todoslist[i];
       }
-      this.newtodolist[i] = this.todoslist[i];
+      console.log(this.newtodolist);
     }
-    console.log(this.newtodolist);
   }
 
   s(str: string){

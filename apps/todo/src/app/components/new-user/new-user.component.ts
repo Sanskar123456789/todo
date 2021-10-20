@@ -45,7 +45,7 @@ export class NewUserComponent implements OnInit,OnDestroy{
         if(data.Success){
           this.messageService.add({severity:'success', summary: 'Success', detail: 'User Registered'});
           timer(700).toPromise().then(() =>{
-            this.router.navigate(['']);
+            this.router.navigate(['/login']);
           })
         }
         else{
